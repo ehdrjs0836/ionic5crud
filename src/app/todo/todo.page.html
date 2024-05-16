@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>할 일 상세</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list *ngIf="tempTodo">
+    <ion-item>
+      <ion-label position="floating">제목</ion-label>
+      <ion-input [(ngModel)]="tempTodo.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">내용</ion-label>
+      <ion-textarea [(ngModel)]="tempTodo.description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <div style="display: flex;">
+        <ion-checkbox [(ngModel)]="tempTodo.complete"></ion-checkbox>
+        <ion-label>완료</ion-label>
+      </div>
+    </ion-item>
+</ion-list>
+<div style="padding: 0 16px;">
+  <ion-button expand="block" (click)="saveChanges()">수정</ion-button>
+</div>
+</ion-content>

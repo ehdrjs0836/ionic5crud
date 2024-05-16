@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openTodoModal()">
+        <ion-icon name="duplicate-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      할 일 목록
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item [button]="true" 
+      *ngFor="let todo of  todos" 
+      (click)="openNewTodo(todo.id)">
+      <ion-label>
+        <h2>{{todo.title}}</h2>
+        <p>{{todo.description}}</p> 
+      </ion-label>
+      <div item-end *ngIf="todo.complete">
+        <ion-icon name="checkbox-outline"></ion-icon>
+      </div>
+      <ion-button fill="clear" (click)="deleteTodo($event, todo.id)">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
